@@ -6,10 +6,16 @@ __pycache__/
 .dvc/config.local
 .dvc/tmp/
 /data/raw/*
+!/data/raw/*.dvc
+!/data/raw/.gitignore
 !/data/raw/.gitkeep
 /data/processed/*
+!/data/processed/*.dvc
+!/data/processed/.gitignore
 !/data/processed/.gitkeep
 /data/features/*
+!/data/features/*.dvc
+!/data/features/.gitignore
 !/data/features/.gitkeep
 /models/solver_configs/*
 !/models/solver_configs/.gitkeep

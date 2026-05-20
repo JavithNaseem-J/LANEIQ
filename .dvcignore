@@ -1,5 +1,2 @@
-/data/raw/
-/data/processed/
-/data/features/
 /models/solver_configs/
 /models/mlflow/

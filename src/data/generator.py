@@ -69,6 +69,15 @@ def generate_shipments(num_records: int = 500) -> List[Dict[str, Any]]:
     return shipments
 
 if __name__ == "__main__":
-    records = generate_shipments(5)
-    for r in records:
-        print(r)
+    import json
+    from pathlib import Path
+    
+    # Generate and save 500 records
+    records = generate_shipments(500)
+    out_file = Path("data/raw/manifests.json")
+    out_file.parent.mkdir(parents=True, exist_ok=True)
+    
+    with open(out_file, "w") as f:
+        json.dump(records, f, indent=2)
+        
+    print(f"Saved {len(records)} shipments to {out_file}")
