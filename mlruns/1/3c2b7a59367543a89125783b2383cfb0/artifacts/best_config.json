@@ -1,0 +1,8 @@
+{
+  "strategy": "PATH_CHEAPEST_ARC",
+  "time_limit": 30,
+  "truck_cost_per_km": 1.5,
+  "vehicle_capacity_kg": 6000,
+  "num_vehicles": 15,
+  "reduction_on_100": 79.57
+}

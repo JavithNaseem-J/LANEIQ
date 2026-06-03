@@ -1,0 +1,15 @@
+artifact_uri: file:///F:/DSML/LANEIQ/mlruns/538045434260585408/9d979c563bb14a8fad211553f87906bc/artifacts
+end_time: 1780503775646
+entry_point_name: ''
+experiment_id: '538045434260585408'
+lifecycle_stage: active
+run_id: 9d979c563bb14a8fad211553f87906bc
+run_name: dashing-pug-570
+run_uuid: 9d979c563bb14a8fad211553f87906bc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780503749988
+status: 3
+tags: []
+user_id: Naseem

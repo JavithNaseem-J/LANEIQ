@@ -1,0 +1,15 @@
+artifact_uri: file:///F:/DSML/LANEIQ/mlruns/538045434260585408/4daec51a1c794061a005d3b1a38d00f0/artifacts
+end_time: 1780503688328
+entry_point_name: ''
+experiment_id: '538045434260585408'
+lifecycle_stage: active
+run_id: 4daec51a1c794061a005d3b1a38d00f0
+run_name: auspicious-hog-870
+run_uuid: 4daec51a1c794061a005d3b1a38d00f0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780503678123
+status: 3
+tags: []
+user_id: Naseem

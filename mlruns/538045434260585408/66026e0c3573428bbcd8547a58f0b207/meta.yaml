@@ -1,0 +1,15 @@
+artifact_uri: file:///F:/DSML/LANEIQ/mlruns/538045434260585408/66026e0c3573428bbcd8547a58f0b207/artifacts
+end_time: 1780503749979
+entry_point_name: ''
+experiment_id: '538045434260585408'
+lifecycle_stage: active
+run_id: 66026e0c3573428bbcd8547a58f0b207
+run_name: charming-smelt-112
+run_uuid: 66026e0c3573428bbcd8547a58f0b207
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780503739784
+status: 3
+tags: []
+user_id: Naseem

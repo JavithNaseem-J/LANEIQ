@@ -1,0 +1,15 @@
+artifact_uri: file:///F:/DSML/LANEIQ/mlruns/538045434260585408/bd83ea39b196403b84b2d22f5b67710c/artifacts
+end_time: 1780503714674
+entry_point_name: ''
+experiment_id: '538045434260585408'
+lifecycle_stage: active
+run_id: bd83ea39b196403b84b2d22f5b67710c
+run_name: righteous-finch-568
+run_uuid: bd83ea39b196403b84b2d22f5b67710c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780503688336
+status: 3
+tags: []
+user_id: Naseem

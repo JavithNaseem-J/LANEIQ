@@ -1,0 +1,15 @@
+artifact_uri: file:///F:/DSML/LANEIQ/mlruns/538045434260585408/1b9c775a442c43d2bf6e8a2e266972a2/artifacts
+end_time: 1780504220752
+entry_point_name: ''
+experiment_id: '538045434260585408'
+lifecycle_stage: active
+run_id: 1b9c775a442c43d2bf6e8a2e266972a2
+run_name: redolent-cow-615
+run_uuid: 1b9c775a442c43d2bf6e8a2e266972a2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780504220485
+status: 3
+tags: []
+user_id: Naseem

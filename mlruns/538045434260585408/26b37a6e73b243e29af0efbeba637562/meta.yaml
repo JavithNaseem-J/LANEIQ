@@ -1,0 +1,15 @@
+artifact_uri: file:///F:/DSML/LANEIQ/mlruns/538045434260585408/26b37a6e73b243e29af0efbeba637562/artifacts
+end_time: 1780503739024
+entry_point_name: ''
+experiment_id: '538045434260585408'
+lifecycle_stage: active
+run_id: 26b37a6e73b243e29af0efbeba637562
+run_name: placid-duck-541
+run_uuid: 26b37a6e73b243e29af0efbeba637562
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780503738204
+status: 3
+tags: []
+user_id: Naseem

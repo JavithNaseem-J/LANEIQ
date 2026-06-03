@@ -1,0 +1,15 @@
+artifact_uri: file:///F:/DSML/LANEIQ/mlruns/538045434260585408/4544cdf13f7443cd9a693e905f42394f/artifacts
+end_time: 1780503739280
+entry_point_name: ''
+experiment_id: '538045434260585408'
+lifecycle_stage: active
+run_id: 4544cdf13f7443cd9a693e905f42394f
+run_name: beautiful-mouse-907
+run_uuid: 4544cdf13f7443cd9a693e905f42394f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780503739030
+status: 3
+tags: []
+user_id: Naseem

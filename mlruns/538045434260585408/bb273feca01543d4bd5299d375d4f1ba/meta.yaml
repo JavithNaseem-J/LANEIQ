@@ -1,0 +1,15 @@
+artifact_uri: file:///F:/DSML/LANEIQ/mlruns/538045434260585408/bb273feca01543d4bd5299d375d4f1ba/artifacts
+end_time: 1780504200797
+entry_point_name: ''
+experiment_id: '538045434260585408'
+lifecycle_stage: active
+run_id: bb273feca01543d4bd5299d375d4f1ba
+run_name: classy-rat-549
+run_uuid: bb273feca01543d4bd5299d375d4f1ba
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780504182449
+status: 3
+tags: []
+user_id: Naseem

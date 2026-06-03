@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1780503848213
+current_stage: None
+description: null
+last_updated_timestamp: 1780503848213
+name: FreightSolver-v1
+run_id: 4feaa9f844b44158a3c92bf880793545
+run_link: null
+source: file:///F:/DSML/LANEIQ/mlruns/538045434260585408/4feaa9f844b44158a3c92bf880793545/artifacts/freight-solver
+status: READY
+status_message: null
+storage_location: file:///F:/DSML/LANEIQ/mlruns/538045434260585408/4feaa9f844b44158a3c92bf880793545/artifacts/freight-solver
+user_id: null
+version: 1

@@ -1,0 +1,7 @@
+solver:
+  max_cargo_weight_kg: 6000
+  time_window_slack_hours: 12
+  cost_coefficients:
+    sea: 1.2
+    air: 4.5
+    road: 2.0

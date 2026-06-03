@@ -1,0 +1,15 @@
+artifact_uri: file:///F:/DSML/LANEIQ/mlruns/538045434260585408/c15ccb1093ec4ca7b76dffd0d5622aea/artifacts
+end_time: 1780503739520
+entry_point_name: ''
+experiment_id: '538045434260585408'
+lifecycle_stage: active
+run_id: c15ccb1093ec4ca7b76dffd0d5622aea
+run_name: casual-loon-394
+run_uuid: c15ccb1093ec4ca7b76dffd0d5622aea
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780503739290
+status: 3
+tags: []
+user_id: Naseem

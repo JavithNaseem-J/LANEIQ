@@ -1,5 +1,5 @@
 outs:
-- md5: 830298b0a5de1a273cda4e081c484029
-  size: 185374
+- md5: d5f748fd78775377419a55f8a2ed486a
+  size: 1851984
   hash: md5
   path: manifests.json

@@ -1,0 +1,15 @@
+artifact_uri: file:///F:/DSML/LANEIQ/mlruns/538045434260585408/809185daa8f4414392732955b539afb7/artifacts
+end_time: 1780504221296
+entry_point_name: ''
+experiment_id: '538045434260585408'
+lifecycle_stage: active
+run_id: 809185daa8f4414392732955b539afb7
+run_name: luminous-moose-526
+run_uuid: 809185daa8f4414392732955b539afb7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780504221042
+status: 3
+tags: []
+user_id: Naseem

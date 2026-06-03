@@ -1,0 +1,48 @@
+schema: '2.0'
+stages:
+  featurize:
+    cmd: python ../src/features/transform.py
+    deps:
+    - path: ../data/raw/manifests.json
+      hash: md5
+      md5: d5f748fd78775377419a55f8a2ed486a
+      size: 1851984
+    - path: ../src/features/transform.py
+      hash: md5
+      md5: fcef9aa29cd765559df822c0dce9e65d
+      size: 2753
+    params:
+      params.yaml:
+        solver.cost_coefficients:
+          sea: 1.2
+          air: 4.5
+          road: 2.0
+    outs:
+    - path: ../data/features/routing_inputs.json
+      hash: md5
+      md5: fd8e84c269c8e895f824fa2f17bf0511
+      size: 1690845
+  solve:
+    cmd: python ../src/solver/solve_stage.py
+    deps:
+    - path: ../data/features/routing_inputs.json
+      hash: md5
+      md5: fd8e84c269c8e895f824fa2f17bf0511
+      size: 1690845
+    - path: ../models/solver_configs/best_config.json
+      hash: md5
+      md5: b56babe2f9319f423b4d9fa2b761f6e9
+      size: 174
+    - path: ../src/solver/baseline.py
+      hash: md5
+      md5: 0a03d25271f023dad97b0d97e7c329d4
+      size: 1539
+    - path: ../src/solver/vrp.py
+      hash: md5
+      md5: f6b69482de02fa537420c05bfb1ffe77
+      size: 8344
+    outs:
+    - path: ../data/processed/routes.json
+      hash: md5
+      md5: 6639ce0efe6bfbbe9bc9a4a2d288050f
+      size: 129408

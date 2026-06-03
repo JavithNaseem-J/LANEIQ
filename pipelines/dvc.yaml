@@ -1,0 +1,21 @@
+stages:
+  featurize:
+    cmd: python ../src/features/transform.py
+    deps:
+      - ../data/raw/manifests.json
+      - ../src/features/transform.py
+    params:
+      - params.yaml:
+        - solver.cost_coefficients
+    outs:
+      - ../data/features/routing_inputs.json
+
+  solve:
+    cmd: python ../src/solver/solve_stage.py
+    deps:
+      - ../data/features/routing_inputs.json
+      - ../src/solver/vrp.py
+      - ../src/solver/baseline.py
+      - ../models/solver_configs/best_config.json
+    outs:
+      - ../data/processed/routes.json
