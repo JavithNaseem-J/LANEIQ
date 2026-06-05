@@ -1,16 +1,7 @@
-"""
-LangGraph pipeline for the LANEIQ multi-agent freight routing system.
-
-Graph topology (linear for now; conditional branching added in Days 11-12):
-
-  [START] --> planner --> route --> exception --> report --> [END]
-"""
-
 import logging
-
 from langgraph.graph import END, START, StateGraph
-
-from src.agents.nodes import exception_node, planner_node, report_node, route_node
+from src.agents.nodes import exception_node, report_node, route_node
+from src.agents.planner import planner_node
 from src.agents.state import AgentState
 
 logger = logging.getLogger(__name__)
@@ -21,13 +12,13 @@ def build_graph() -> StateGraph:
 
     graph = StateGraph(AgentState)
 
-    # ── Register nodes ────────────────────────────────────────────────────
+    # ── Register nodes 
     graph.add_node("planner", planner_node)
     graph.add_node("route", route_node)
     graph.add_node("exception", exception_node)
     graph.add_node("report", report_node)
 
-    # ── Wire edges (linear sequence) ──────────────────────────────────────
+    # ── Wire edges (linear sequence) 
     graph.add_edge(START, "planner")
     graph.add_edge("planner", "route")
     graph.add_edge("route", "exception")
