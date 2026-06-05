@@ -90,3 +90,76 @@ class TestFullGraphWithPlanner:
         assert result.get("error") is None
         assert isinstance(result["decomposed_tasks"], list)
         assert len(result["decomposed_tasks"]) > 0
+
+
+class TestRouteNode:
+    """Tests for the Route Agent node."""
+
+    def _planner_state(self) -> dict:
+        """Run the real Planner to get a valid state with decomposed_tasks."""
+        from src.agents.planner import planner_node
+
+        state = {"shipment_brief": HARDCODED_BRIEF, "decomposed_tasks": [], "error": None}
+        return planner_node(state)
+
+    def test_route_populates_route_options(self):
+        """Route Agent must return at least two route options (baseline + vrp)."""
+        from src.agents.route import route_node
+
+        state = self._planner_state()
+        result = route_node(state)
+        assert result.get("error") is None, f"Route Agent returned error: {result.get('error')}"
+        assert isinstance(result["route_options"], list)
+        assert len(result["route_options"]) >= 2
+
+    def test_route_populates_selected_route(self):
+        """selected_route must be non-None and have a total_cost."""
+        from src.agents.route import route_node
+
+        state = self._planner_state()
+        result = route_node(state)
+        assert result["selected_route"] is not None
+        assert "total_cost" in result["selected_route"]
+        assert result["selected_route"]["total_cost"] >= 0
+
+    def test_route_cost_reduction_is_a_float(self):
+        """VRP cost_reduction_vs_baseline must be a numeric value (can be negative on single shipment)."""
+        from src.agents.route import route_node
+
+        state = self._planner_state()
+        result = route_node(state)
+        vrp_option = next(r for r in result["route_options"] if r["strategy"] == "ortools_vrp")
+        # On a single shipment the truck flat-rate can exceed per-kg greedy cost;
+        # the assertion is that the field exists and is a number, not that it's positive.
+        assert isinstance(vrp_option["cost_reduction_vs_baseline"], (int, float))
+
+    def test_route_propagates_upstream_error(self):
+        """Route Agent must skip if upstream error is set."""
+        from src.agents.route import route_node
+
+        state = {
+            "decomposed_tasks": [],
+            "error": "upstream failure",
+            "route_options": [],
+            "selected_route": None,
+        }
+        result = route_node(state)
+        assert result["error"] == "upstream failure"
+
+    def test_full_graph_planner_to_route(self):
+        """End-to-end: Planner -> Route must populate both decomposed_tasks and selected_route."""
+        initial_state = {
+            "shipment_brief": HARDCODED_BRIEF,
+            "decomposed_tasks": [],
+            "route_options": [],
+            "selected_route": None,
+            "exceptions": [],
+            "final_report": None,
+            "error": None,
+        }
+        result = pipeline.invoke(initial_state)
+        assert result.get("error") is None, f"Pipeline error: {result.get('error')}"
+        assert len(result["decomposed_tasks"]) > 0
+        assert result["selected_route"] is not None
+        assert result["selected_route"]["total_cost"] >= 0
+
