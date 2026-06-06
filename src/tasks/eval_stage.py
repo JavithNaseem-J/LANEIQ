@@ -12,6 +12,7 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
+
 logging.basicConfig(level=logging.WARNING)
 
 repo_root = Path(__file__).resolve().parents[2]
@@ -56,15 +57,17 @@ print(f"Running {len(TEST_BRIEFS)} evaluation briefs...")
 for idx, brief in enumerate(TEST_BRIEFS, 1):
     t0 = time.time()
     try:
-        result = pipeline.invoke({
-            "shipment_brief": brief,
-            "decomposed_tasks": [],
-            "route_options": [],
-            "selected_route": None,
-            "exceptions": [],
-            "final_report": None,
-            "error": None,
-        })
+        result = pipeline.invoke(
+            {
+                "shipment_brief": brief,
+                "decomposed_tasks": [],
+                "route_options": [],
+                "selected_route": None,
+                "exceptions": [],
+                "final_report": None,
+                "error": None,
+            }
+        )
 
         elapsed = round(time.time() - t0, 2)
 
@@ -80,24 +83,28 @@ for idx, brief in enumerate(TEST_BRIEFS, 1):
         cost = data.get("selected_cost_usd", 0.0)
         cost_reductions.append(reduction)
 
-        results.append({
-            "brief_idx": idx,
-            "brief_snippet": brief[:60] + "...",
-            "selected_strategy": data.get("selected_strategy", "unknown"),
-            "selected_cost_usd": cost,
-            "cost_reduction_pct": reduction,
-            "exceptions_detected": data.get("exceptions_detected", 0),
-            "elapsed_s": elapsed,
-        })
-        print(f"  [{idx:02d}] OK  strategy={data.get('selected_strategy','?'):<20}  "
-              f"cost=${cost:>8,.0f}  reduction={reduction:>+6.1f}%  ({elapsed}s)")
+        results.append(
+            {
+                "brief_idx": idx,
+                "brief_snippet": brief[:60] + "...",
+                "selected_strategy": data.get("selected_strategy", "unknown"),
+                "selected_cost_usd": cost,
+                "cost_reduction_pct": reduction,
+                "exceptions_detected": data.get("exceptions_detected", 0),
+                "elapsed_s": elapsed,
+            }
+        )
+        print(
+            f"  [{idx:02d}] OK  strategy={data.get('selected_strategy', '?'):<20}  "
+            f"cost=${cost:>8,.0f}  reduction={reduction:>+6.1f}%  ({elapsed}s)"
+        )
 
     except Exception as exc:
         elapsed = round(time.time() - t0, 2)
         errors.append({"brief_idx": idx, "error": str(exc)})
         print(f"  [{idx:02d}] EXCEPTION: {str(exc)[:60]}")
 
-# ── Summary statistics ────────────────────────────────────────────────────────
+# Summary statistics
 summary = {
     "total_briefs": len(TEST_BRIEFS),
     "successful": len(results),
@@ -117,6 +124,8 @@ with open(OUTPUT_PATH, "w") as f:
     json.dump(output, f, indent=2)
 
 print(f"\nEval complete — {summary['successful']}/{summary['total_briefs']} succeeded")
-print(f"Cost reduction: mean={summary['cost_reduction_pct']['mean']}%  "
-      f"median={summary['cost_reduction_pct']['median']}%")
+print(
+    f"Cost reduction: mean={summary['cost_reduction_pct']['mean']}%  "
+    f"median={summary['cost_reduction_pct']['median']}%"
+)
 print(f"Output: {OUTPUT_PATH}")

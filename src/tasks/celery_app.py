@@ -7,10 +7,9 @@ Fallback: if Redis is unavailable, tasks run in-process via CELERY_TASK_ALWAYS_E
 
 import json
 import logging
-
 from celery import Celery
-
 from config.settings import settings
+from src.agents.graph import pipeline
 
 logger = logging.getLogger(__name__)
 
@@ -43,7 +42,6 @@ def run_optimization(self, shipment_brief: str) -> dict:
         Serialised OptimisationResult dict (same schema as api/schemas/result.py).
     """
     # Import here to avoid circular imports at module load time
-    from src.agents.graph import pipeline
 
     logger.info("[run_optimization] starting task for brief: %s", shipment_brief[:80])
 
@@ -71,8 +69,7 @@ def run_optimization(self, shipment_brief: str) -> dict:
         final_report_str = result.get("final_report") or ""
         final_report_data = json.loads(final_report_str) if final_report_str else {}
 
-        logger.info("[run_optimization] task complete — cost $%.2f",
-                    final_report_data.get("selected_cost_usd", 0))
+        logger.info("[run_optimization] task complete — cost $%.2f", final_report_data.get("selected_cost_usd", 0))
 
         return {
             "status": "success",

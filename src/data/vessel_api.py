@@ -1,6 +1,6 @@
 import logging
 import random
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta
 
 import requests
 
@@ -102,8 +102,6 @@ def get_vessel_eta(shipment_id: str, destination_port: str, deadline_dt: datetim
                 "delay_hours": delay_hours,
             }
     except Exception as exc:
-        logger.warning(
-            "[vessel_api] MarineTraffic API error (%s) — falling back to synthetic ETA.", exc
-        )
+        logger.warning("[vessel_api] MarineTraffic API error (%s) — falling back to synthetic ETA.", exc)
 
     return _synthetic_eta(deadline_dt, shipment_id)

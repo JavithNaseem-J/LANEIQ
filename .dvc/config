@@ -1,0 +1,4 @@
+[core]
+    remote = localremote
+['remote "localremote"']
+    url = f:\DSML\LANEIQ\.dvc_remote
