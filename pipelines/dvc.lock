@@ -46,3 +46,39 @@ stages:
       hash: md5
       md5: 6639ce0efe6bfbbe9bc9a4a2d288050f
       size: 129408
+  evaluate:
+    cmd: F:\DSML\LANEIQ\.venv\Scripts\python.exe ../src/tasks/eval_stage.py
+    deps:
+    - path: ../models/solver_configs/best_config.json
+      hash: md5
+      md5: b56babe2f9319f423b4d9fa2b761f6e9
+      size: 174
+    - path: ../src/agents/exception.py
+      hash: md5
+      md5: 202c8c80c838e015fead8d6651942ccc
+      size: 4863
+    - path: ../src/agents/graph.py
+      hash: md5
+      md5: 23f1ca90f3ef6373d010f2228d9891a2
+      size: 1570
+    - path: ../src/agents/planner.py
+      hash: md5
+      md5: 0b9130749e1d95eeec82fd68675ea63a
+      size: 1874
+    - path: ../src/agents/report.py
+      hash: md5
+      md5: bfa066e00e207dc63d9c25b8c874ada4
+      size: 5988
+    - path: ../src/agents/route.py
+      hash: md5
+      md5: aa481bcce5091c8733e069b0f0782f53
+      size: 5468
+    - path: ../src/tasks/eval_stage.py
+      hash: md5
+      md5: 4562cae1587f5b23e501f8dae81e4e2b
+      size: 5467
+    outs:
+    - path: ../data/processed/eval_results.json
+      hash: md5
+      md5: 36fff0608a4ebd4459301e5cf9a97844
+      size: 6372

@@ -19,3 +19,16 @@ stages:
       - ../models/solver_configs/best_config.json
     outs:
       - ../data/processed/routes.json
+
+  evaluate:
+    cmd: F:\DSML\LANEIQ\.venv\Scripts\python.exe ../src/tasks/eval_stage.py
+    deps:
+      - ../src/tasks/eval_stage.py
+      - ../src/agents/graph.py
+      - ../src/agents/planner.py
+      - ../src/agents/route.py
+      - ../src/agents/exception.py
+      - ../src/agents/report.py
+      - ../models/solver_configs/best_config.json
+    outs:
+      - ../data/processed/eval_results.json
