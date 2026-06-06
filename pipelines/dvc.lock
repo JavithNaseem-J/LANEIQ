@@ -82,3 +82,23 @@ stages:
       hash: md5
       md5: 88b2668fbab748bafb4984c533fdbf47
       size: 6377
+  monitor:
+    cmd: F:\DSML\LANEIQ\.venv\Scripts\python.exe ../src/monitoring/drift.py
+    deps:
+    - path: ../data/features/routing_inputs.json
+      hash: md5
+      md5: ee2c1c01263323ab4f60ebf85fe6ef45
+      size: 1690861
+    - path: ../data/processed/reference.json
+      hash: md5
+      md5: c1aa1599b01eaf3b4ec1b24ecde230cd
+      size: 33786
+    - path: ../src/monitoring/drift.py
+      hash: md5
+      md5: c5332e2c6911d6debe3c6c004f53be6a
+      size: 3800
+    outs:
+    - path: ../data/processed/drift_report.html
+      hash: md5
+      md5: 585a65ccdc176d335751f8c4cc652614
+      size: 3227927

@@ -1,9 +1,7 @@
 import logging
 from datetime import datetime, timezone
 from pathlib import Path
-
 import mlflow
-
 from src.agents.state import AgentState
 from src.features.transform import PORT_COORDS, haversine
 from src.solver import baseline, vrp
@@ -76,7 +74,7 @@ def route_node(state: AgentState) -> AgentState:
     try:
         routing_inputs = [_task_to_routing_input(t) for t in tasks]
 
-        # ── Run both solvers ──────────────────────────────────────────────
+        # Run both solvers
         baseline_res = baseline.solve(routing_inputs)
         vrp_res = vrp.solve(routing_inputs)
 
@@ -87,7 +85,7 @@ def route_node(state: AgentState) -> AgentState:
         if baseline_cost > 0:
             cost_reduction = round((baseline_cost - vrp_cost) / baseline_cost * 100, 2)
 
-        # ── Build route_options ───────────────────────────────────────────
+        # Build route_options
         route_options = [
             {
                 "strategy": "greedy_baseline",
@@ -105,7 +103,7 @@ def route_node(state: AgentState) -> AgentState:
             },
         ]
 
-        # ── Select best option (lowest cost) ──────────────────────────────
+        # Select best option (lowest cost)
         selected_route = min(route_options, key=lambda r: r["total_cost"])
 
         logger.info(
@@ -116,7 +114,7 @@ def route_node(state: AgentState) -> AgentState:
             selected_route["strategy"],
         )
 
-        # ── Log to MLflow ─────────────────────────────────────────────────
+        # Log to MLflow
         try:
             mlflow.set_tracking_uri(f"sqlite:///{_DB_PATH}")
             mlflow.set_experiment("FreightSolver-Optimisation")

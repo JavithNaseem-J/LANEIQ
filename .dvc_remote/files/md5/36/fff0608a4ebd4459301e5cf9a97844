@@ -1,0 +1,197 @@
+{
+  "summary": {
+    "total_briefs": 20,
+    "successful": 20,
+    "errors": 0,
+    "cost_reduction_pct": {
+      "mean": 10.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 100.0
+    },
+    "run_at": "2026-06-06T07:33:46.646515+00:00"
+  },
+  "results": [
+    {
+      "brief_idx": 1,
+      "brief_snippet": "Ship 500 kg of electronics from Chennai to Jebel Ali by June...",
+      "selected_strategy": "greedy_baseline",
+      "selected_cost_usd": 1000.0,
+      "cost_reduction_pct": 0.0,
+      "exceptions_detected": 0,
+      "elapsed_s": 3.15
+    },
+    {
+      "brief_idx": 2,
+      "brief_snippet": "Move 2000 kg of textiles from NSICT Mumbai to Abu Dhabi by J...",
+      "selected_strategy": "greedy_baseline",
+      "selected_cost_usd": 2400.0,
+      "cost_reduction_pct": 0.0,
+      "exceptions_detected": 0,
+      "elapsed_s": 1.73
+    },
+    {
+      "brief_idx": 3,
+      "brief_snippet": "Urgent: 150 kg of perishables from Delhi ICD to Jebel Ali, m...",
+      "selected_strategy": "greedy_baseline",
+      "selected_cost_usd": 300.0,
+      "cost_reduction_pct": 0.0,
+      "exceptions_detected": 0,
+      "elapsed_s": 1.86
+    },
+    {
+      "brief_idx": 4,
+      "brief_snippet": "Send 3500 kg of machinery from Chennai to Jebel Ali via sea....",
+      "selected_strategy": "greedy_baseline",
+      "selected_cost_usd": 4200.0,
+      "cost_reduction_pct": 0.0,
+      "exceptions_detected": 0,
+      "elapsed_s": 2.06
+    },
+    {
+      "brief_idx": 5,
+      "brief_snippet": "Road shipment of 800 kg chemicals from Abu Dhabi to NSICT Mu...",
+      "selected_strategy": "greedy_baseline",
+      "selected_cost_usd": 960.0,
+      "cost_reduction_pct": 0.0,
+      "exceptions_detected": 0,
+      "elapsed_s": 1.43
+    },
+    {
+      "brief_idx": 6,
+      "brief_snippet": "Ship 1200 kg of electronics from NSICT Mumbai to Jebel Ali b...",
+      "selected_strategy": "greedy_baseline",
+      "selected_cost_usd": 1440.0,
+      "cost_reduction_pct": 0.0,
+      "exceptions_detected": 0,
+      "elapsed_s": 1.78
+    },
+    {
+      "brief_idx": 7,
+      "brief_snippet": "Move 600 kg of perishables from Chennai to Abu Dhabi urgentl...",
+      "selected_strategy": "greedy_baseline",
+      "selected_cost_usd": 1200.0,
+      "cost_reduction_pct": 0.0,
+      "exceptions_detected": 0,
+      "elapsed_s": 1.65
+    },
+    {
+      "brief_idx": 8,
+      "brief_snippet": "Transport 4000 kg of machinery from NSICT Mumbai to Jebel Al...",
+      "selected_strategy": "greedy_baseline",
+      "selected_cost_usd": 4800.0,
+      "cost_reduction_pct": 0.0,
+      "exceptions_detected": 0,
+      "elapsed_s": 1.7
+    },
+    {
+      "brief_idx": 9,
+      "brief_snippet": "Ship 250 kg of textiles from Delhi ICD to Abu Dhabi by July ...",
+      "selected_strategy": "greedy_baseline",
+      "selected_cost_usd": 300.0,
+      "cost_reduction_pct": 0.0,
+      "exceptions_detected": 0,
+      "elapsed_s": 1.71
+    },
+    {
+      "brief_idx": 10,
+      "brief_snippet": "Urgent air shipment: 100 kg of chemicals from Chennai to Jeb...",
+      "selected_strategy": "ortools_vrp",
+      "selected_cost_usd": 0.0,
+      "cost_reduction_pct": 100.0,
+      "exceptions_detected": 0,
+      "elapsed_s": 1.73
+    },
+    {
+      "brief_idx": 11,
+      "brief_snippet": "Move 1800 kg of electronics from Abu Dhabi to NSICT Mumbai b...",
+      "selected_strategy": "greedy_baseline",
+      "selected_cost_usd": 2160.0,
+      "cost_reduction_pct": 0.0,
+      "exceptions_detected": 0,
+      "elapsed_s": 1.78
+    },
+    {
+      "brief_idx": 12,
+      "brief_snippet": "Ship 700 kg of perishables from NSICT Mumbai to Delhi ICD by...",
+      "selected_strategy": "greedy_baseline",
+      "selected_cost_usd": 1400.0,
+      "cost_reduction_pct": 0.0,
+      "exceptions_detected": 0,
+      "elapsed_s": 1.89
+    },
+    {
+      "brief_idx": 13,
+      "brief_snippet": "Transport 2500 kg of machinery from Jebel Ali to Chennai by ...",
+      "selected_strategy": "greedy_baseline",
+      "selected_cost_usd": 3000.0,
+      "cost_reduction_pct": 0.0,
+      "exceptions_detected": 0,
+      "elapsed_s": 1.67
+    },
+    {
+      "brief_idx": 14,
+      "brief_snippet": "Ship 400 kg of textiles from Chennai to Abu Dhabi by July 25...",
+      "selected_strategy": "greedy_baseline",
+      "selected_cost_usd": 480.0,
+      "cost_reduction_pct": 0.0,
+      "exceptions_detected": 0,
+      "elapsed_s": 3.06
+    },
+    {
+      "brief_idx": 15,
+      "brief_snippet": "Move 900 kg of chemicals from Delhi ICD to Jebel Ali by July...",
+      "selected_strategy": "greedy_baseline",
+      "selected_cost_usd": 1080.0,
+      "cost_reduction_pct": 0.0,
+      "exceptions_detected": 0,
+      "elapsed_s": 6.23
+    },
+    {
+      "brief_idx": 16,
+      "brief_snippet": "Urgent: 200 kg of electronics from NSICT Mumbai to Abu Dhabi...",
+      "selected_strategy": "ortools_vrp",
+      "selected_cost_usd": 0.0,
+      "cost_reduction_pct": 100.0,
+      "exceptions_detected": 0,
+      "elapsed_s": 5.9
+    },
+    {
+      "brief_idx": 17,
+      "brief_snippet": "Transport 3000 kg of machinery from Abu Dhabi to Chennai by ...",
+      "selected_strategy": "greedy_baseline",
+      "selected_cost_usd": 3600.0,
+      "cost_reduction_pct": 0.0,
+      "exceptions_detected": 0,
+      "elapsed_s": 6.09
+    },
+    {
+      "brief_idx": 18,
+      "brief_snippet": "Ship 1500 kg of textiles from Jebel Ali to NSICT Mumbai by A...",
+      "selected_strategy": "greedy_baseline",
+      "selected_cost_usd": 1800.0,
+      "cost_reduction_pct": 0.0,
+      "exceptions_detected": 0,
+      "elapsed_s": 6.98
+    },
+    {
+      "brief_idx": 19,
+      "brief_snippet": "Move 350 kg of perishables from Chennai to Delhi ICD by June...",
+      "selected_strategy": "greedy_baseline",
+      "selected_cost_usd": 420.0,
+      "cost_reduction_pct": 0.0,
+      "exceptions_detected": 0,
+      "elapsed_s": 6.19
+    },
+    {
+      "brief_idx": 20,
+      "brief_snippet": "Ship 2200 kg of electronics from NSICT Mumbai to Jebel Ali b...",
+      "selected_strategy": "greedy_baseline",
+      "selected_cost_usd": 2640.0,
+      "cost_reduction_pct": 0.0,
+      "exceptions_detected": 0,
+      "elapsed_s": 6.08
+    }
+  ],
+  "errors": []
+}

@@ -1,8 +1,6 @@
 import json
 import logging
-
 from groq import Groq
-
 from api.schemas.result import ExceptionSummary, OptimisationResult, RouteOption
 from config.settings import settings
 from src.agents.state import AgentState
@@ -77,9 +75,7 @@ def _build_result(state: AgentState, report_text: str) -> OptimisationResult:
     selected = state.get("selected_route") or {}
     exceptions = state.get("exceptions") or []
 
-    baseline_cost = next(
-        (o["total_cost"] for o in options if o.get("strategy") == "greedy_baseline"), 0.0
-    )
+    baseline_cost = next((o["total_cost"] for o in options if o.get("strategy") == "greedy_baseline"), 0.0)
     selected_cost = selected.get("total_cost", 0.0)
     reduction_pct = 0.0
     if baseline_cost > 0:

@@ -12,11 +12,11 @@ into cost-optimised, exception-aware routing plans.
 
 ```
                         ┌─────────────────────────────────────────┐
-                        │              AgentState                  │
-                        │  shipment_brief  │  decomposed_tasks     │
-                        │  route_options   │  selected_route       │
-                        │  exceptions      │  final_report         │
-                        │  error           │                       │
+                        │              AgentState                 │
+                        │  shipment_brief  │  decomposed_tasks    │
+                        │  route_options   │  selected_route      │
+                        │  exceptions      │  final_report        │
+                        │  error           │                      │
                         └─────────────────────────────────────────┘
 
   [START]

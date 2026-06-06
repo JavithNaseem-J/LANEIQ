@@ -1,18 +1,6 @@
-"""
-Planner Agent — Day 9 implementation.
-
-Decomposes a free-text shipment_brief into a list of structured
-decomposed_tasks using Groq's tool-calling API.
-
-On success: state["decomposed_tasks"] is populated with extracted fields.
-On failure: state["error"] is set and decomposed_tasks stays empty.
-"""
-
 import json
 import logging
-
 from groq import Groq
-
 from config.agents import PLANNER_SYSTEM_PROMPT, PLANNER_TOOL_SCHEMA
 from config.settings import settings
 from src.agents.state import AgentState

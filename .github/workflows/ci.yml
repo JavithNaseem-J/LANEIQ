@@ -1,0 +1,67 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install flake8 black
+      - run: black --check src/ api/ --line-length 120
+      - run: flake8 src/ api/ --max-line-length=120 --extend-ignore=E501,W503,E203,E402
+
+  test:
+    runs-on: ubuntu-latest
+    needs: lint
+    env:
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      REDIS_URL: redis://localhost:6379/0
+    services:
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Unit tests (no API key needed)
+        run: pytest tests/unit/ -v --tb=short --cov=src --cov-report=xml
+      - name: API integration tests (mocked)
+        run: pytest tests/integration/test_api.py -v --tb=short
+      - uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage.xml
+
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build API Docker image
+        run: docker build -f docker/Dockerfile.api -t laneiq-api:${{ github.sha }} .
+      - name: Verify health endpoint
+        run: |
+          docker run -d -p 8000:8000 \
+            -e GROQ_API_KEY=${{ secrets.GROQ_API_KEY }} \
+            -e REDIS_URL=redis://localhost:6379/0 \
+            --name laneiq-test laneiq-api:${{ github.sha }}
+          sleep 15
+          curl -f http://localhost:8000/health
+          docker stop laneiq-test

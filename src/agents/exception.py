@@ -1,6 +1,7 @@
 import logging
 from datetime import datetime, timezone
-
+from src.agents.route import _task_to_routing_input
+from src.solver import baseline as baseline_solver
 from src.agents.state import AgentState
 from src.data.vessel_api import get_vessel_eta
 
@@ -90,9 +91,7 @@ def exception_node(state: AgentState) -> AgentState:
                 delay_hours,
             )
 
-            # ── Re-route with tightened deadline ──────────────────────────
-            from src.agents.route import _task_to_routing_input
-            from src.solver import baseline as baseline_solver
+            # ── Re-route with tightened deadline
 
             routing_input = _task_to_routing_input(task)
             tightened_input = _tighten_time_window(routing_input, delay_hours)

@@ -32,3 +32,13 @@ stages:
       - ../models/solver_configs/best_config.json
     outs:
       - ../data/processed/eval_results.json
+
+  monitor:
+    cmd: F:\DSML\LANEIQ\.venv\Scripts\python.exe ../src/monitoring/drift.py
+    deps:
+      - ../src/monitoring/drift.py
+      - ../data/features/routing_inputs.json
+      - ../data/processed/reference.json
+    outs:
+      - ../data/processed/drift_report.html
+

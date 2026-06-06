@@ -14,13 +14,13 @@ def build_graph() -> StateGraph:
 
     graph = StateGraph(AgentState)
 
-    # ── Register nodes 
+    # ── Register nodes
     graph.add_node("planner", planner_node)
     graph.add_node("route", route_node)
     graph.add_node("exception", exception_node)
     graph.add_node("report", report_node)
 
-    # ── Wire edges (linear sequence) 
+    # ── Wire edges (linear sequence)
     graph.add_edge(START, "planner")
     graph.add_edge("planner", "route")
     graph.add_edge("route", "exception")
