@@ -1,10 +1,4 @@
-"""
-System prompts and tool schemas for all LANEIQ agent nodes.
-Keeping prompts in config keeps them easy to iterate without
-touching business logic code.
-"""
-
-# ── Planner Agent ─────────────────────────────────────────────────────────────
+# ── Planner Agent 
 
 PLANNER_SYSTEM_PROMPT = """You are a freight logistics planner for LANEIQ, an AI-powered freight routing system.
 
@@ -60,10 +54,6 @@ PLANNER_TOOL_SCHEMA = {
                     "type": "string",
                     "enum": ["sea", "air", "road"],
                     "description": "Preferred transport mode",
-                },
-                "estimated_value_usd": {
-                    "type": "number",
-                    "description": "Estimated cargo value in USD (optional)",
                 },
             },
             "required": [
