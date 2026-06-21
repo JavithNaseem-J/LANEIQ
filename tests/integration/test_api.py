@@ -2,10 +2,8 @@
 API integration tests — uses httpx.TestClient (no real Celery broker needed).
 The Celery task is patched to return a canned result synchronously.
 """
-import json
 from unittest.mock import MagicMock, patch
 
-import pytest
 from fastapi.testclient import TestClient
 
 from api.main import app

@@ -4,7 +4,6 @@ These tests make a live Groq API call — they are intentionally
 separate from unit tests so CI can skip them when no API key is set.
 """
 
-import pytest
 from src.agents.graph import pipeline
 from src.agents.planner import planner_node
 

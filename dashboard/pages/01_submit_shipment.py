@@ -1,5 +1,4 @@
 """Page 1 — Submit Shipment Brief."""
-import json
 
 import streamlit as st
 
